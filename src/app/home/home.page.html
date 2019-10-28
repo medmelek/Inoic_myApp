@@ -1,19 +1,34 @@
-<ion-content fullscreen color="dark">
+<ion-content color="dark" fullscreen padding >
 
-  <ion-button color="light" (click)="presentActionSheet()">open</ion-button>
+<div  class="first" color="transparent">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="3">
+        <ion-img [src]="image"></ion-img>
+    </ion-col>
+  </ion-row>      
+</div>
 
-  <ion-list>
-    <ion-list-header>Badges</ion-list-header>
-    <ion-item>
-      <ion-label>Followers</ion-label>
-      <ion-badge slot="end">22k</ion-badge>
-    </ion-item>
-    <ion-item>
-      <ion-label>Likes</ion-label>
-      <ion-badge color="secondary" slot="end">118k</ion-badge>
-    </ion-item>
-   
-  </ion-list>
+<ion-list class="ion-list">
 
+     <ion-item class="raduis">
+        <ion-label position="floating">your email</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-top raduis">
+          <ion-label position="floating">your password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+</ion-list>
+
+<ion-button color="primary"expand="block" class="ion-margin">Primary</ion-button>
 
 </ion-content>
+
+
+
+  <ion-footer translucent="true" color="transparent" no-border>
+      <ion-toolbar color="transparent">
+        <ion-title class="footer" size="small">copy right by med melek 2020</ion-title>
+      </ion-toolbar>
+    </ion-footer>

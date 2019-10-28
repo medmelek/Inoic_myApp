@@ -8,6 +8,8 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class HomePage {
 
+  public inputVal:string;
+  image = '../assets/icon/logo.png';
   
   constructor(public actionSheetController: ActionSheetController) {}
 
@@ -49,6 +51,10 @@ export class HomePage {
       }]
     });
     await actionSheet.present();
+  }
+
+  callback(){
+    alert("button clic");
   }
 
 }
