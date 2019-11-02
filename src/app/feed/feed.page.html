@@ -1,9 +1,42 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>feed</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content color="dark" fullscreen padding>
 
-<ion-content>
+    <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+          </ion-buttons>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="2"><ion-icon name="person"></ion-icon>{{userCount}}</ion-col>
+            <ion-col size="8"></ion-col>
+            <ion-col size="2"><ion-icon name="cash"></ion-icon>{{salaryCount}}</ion-col>
+          </ion-row>
+        </ion-toolbar>
+        </ion-header>
 
+  <ion-list class="list" *ngIf="viewlist">
+ 
+  <ion-item-sliding *ngFor="let hero of heroes" class="ion-margin-bottom item" style="border-radius:2vh">
+    <ion-item >
+      <ion-avatar slot="start">
+        <ion-img [src]="image"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2>name :{{hero.name}}</h2>
+        <h3>cin: {{hero.cin}}</h3>
+        <p>salary: {{hero.salary}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item-options>
+      <ion-item-option color="primary">
+        <ion-icon slot="bottom" name="create" (click)="godetail(hero)" ></ion-icon>
+        Edit
+      </ion-item-option>
+      <ion-item-option color="danger">
+        <ion-icon slot="bottom" name="trash" (click)="func(hero)"></ion-icon>
+        Delete
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+</ion-list>
 </ion-content>

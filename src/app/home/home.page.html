@@ -1,34 +1,19 @@
 <ion-content color="dark" fullscreen padding >
 
-<div  class="first" color="transparent">
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="3">
-        <ion-img [src]="image"></ion-img>
-    </ion-col>
-  </ion-row>      
-</div>
-
-<ion-list class="ion-list">
-
-     <ion-item class="raduis">
-        <ion-label position="floating">your email</ion-label>
-        <ion-input type="email"></ion-input>
-      </ion-item>
-
-      <ion-item class="ion-margin-top raduis">
-          <ion-label position="floating">your password</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-</ion-list>
-
-<ion-button color="primary"expand="block" class="ion-margin">Primary</ion-button>
+<ion-tabs>
+  <ion-tab-bar slot="bottom" color="dark" no-border>
+    <ion-tab-button tab="add">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Add</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="feed">
+      <ion-icon name="contact"></ion-icon>
+      <ion-label>Feed</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
 
 </ion-content>
 
 
 
-  <ion-footer translucent="true" color="transparent" no-border>
-      <ion-toolbar color="transparent">
-        <ion-title class="footer" size="small">copy right by med melek 2020</ion-title>
-      </ion-toolbar>
-    </ion-footer>
