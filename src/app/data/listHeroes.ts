@@ -1,7 +1,6 @@
 import { Hero } from '../model/Hero';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +9,42 @@ import { promise } from 'protractor';
 export class HEROES {
 
   arr: Hero[] = [];
+  salarcount :number=0;
+
   arrSync: BehaviorSubject<Hero[]>;
+  salarcountsync:BehaviorSubject<number>;
+
 
   constructor() {
     this.arrSync = new BehaviorSubject(this.arr);
-}
+    this.salarcountsync=new BehaviorSubject(this.salarcount);
+  }
 
+  incrementSalary(salar:number){
+    this.salarcount=this.salarcount+salar;
+    this.salarcountsync.next(this.salarcount);
+  }
+
+  reCheckSlaryCount(){
+    let somme :number =0 ;
+    this.arr.forEach(element => {
+       somme=somme+parseInt(element.salary);
+    });
+    this.salarcount=somme;
+    this.salarcountsync.next(this.salarcount);
+  }
+
+  
   add(hero:Hero) {
-    this.arr.push(hero)
-    this.arrSync.next(this.arr);
+    if(this.getById(hero.cin)!=null){
+      alert("existing cin try anathor");
+    }else{
+      this.arr.push(hero)
+      this.arrSync.next(this.arr);
+      this.incrementSalary(parseInt(hero.salary));
+
+}
+   
   }
 
   get(){
@@ -28,6 +54,7 @@ export class HEROES {
   delete(cin :string){
     this.arr = this.arr.filter(item => item.cin != cin);
     this.arrSync.next(this.arr);
+    this.reCheckSlaryCount();
   }
 
   getById(cin:string) {
@@ -46,8 +73,9 @@ export class HEROES {
       }
    });
     this.arrSync.next(this.arr);
-    console.log("**********");
-    console.log(this.arr);
+    this.reCheckSlaryCount();
+
+ 
   
 
   }

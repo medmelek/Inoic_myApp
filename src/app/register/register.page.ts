@@ -15,12 +15,12 @@ export class RegisterPage implements OnInit {
   salary:string="600";
   arr: Hero[] = [];
 
+
   constructor(private appsevice: HEROES) {
 
   }
   ngOnInit() {
-
-      this.appsevice.arrSync.subscribe(c => {this.arr = c;});
+   // this.appsevice.arrSync.subscribe(c => {this.arr = c;});
   }
 
 

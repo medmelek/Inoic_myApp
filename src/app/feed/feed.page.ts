@@ -16,21 +16,26 @@ export class FeedPage implements OnInit {
   viewlist : boolean ;
   detailsPage =LoginPage ;
 
-  userCount :number ;
-  salaryCount :string ;
-  
+  userCount :number=0 ;
+  salaryCount:number =0 ;
+
   constructor(private appsevice: HEROES, private router:Router) {
   }
   ngOnInit() {
+    
     this.appsevice.arrSync.subscribe(c => {this.heroes = c;
       if (this.heroes.length>0){
         this.viewlist=true;
       }else{
         this.viewlist=false ;
       }
+      this.userCount=this.heroes.length;
     });
-    this.userCount=this.heroes.length;
-    this.salaryCount="50"
+    this.appsevice.salarcountsync.subscribe(c => {this.salaryCount = c;
+    console.log("from feeed ===>"+this.salaryCount)
+    });
+
+        
     
         }
 
